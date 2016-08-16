@@ -1,6 +1,6 @@
-class CreatePlayers < ActiveRecord::Migration[5.0]
+class CreateParticipations < ActiveRecord::Migration[5.0]
   def change
-    create_table :players do |t|
+    create_table :participations do |t|
       t.string :status
       t.text :review
       t.integer :rating

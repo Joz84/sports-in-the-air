@@ -17,15 +17,16 @@ ActiveRecord::Schema.define(version: 20160815164416) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
-    t.integer  "level"
-    t.boolean  "material"
+    t.integer  "required_level"
+    t.boolean  "required_material"
     t.text     "description"
-    t.integer  "number"
+    t.integer  "number_of_players"
+    t.string   "status"
     t.integer  "user_id"
     t.integer  "place_id"
     t.integer  "sport_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["place_id"], name: "index_events_on_place_id", using: :btree
     t.index ["sport_id"], name: "index_events_on_sport_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
@@ -44,12 +45,10 @@ ActiveRecord::Schema.define(version: 20160815164416) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
-    t.integer  "user_id"
-    t.integer  "event_id"
+    t.integer  "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_messages_on_event_id", using: :btree
-    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+    t.index ["player_id"], name: "index_messages_on_player_id", using: :btree
   end
 
   create_table "places", force: :cascade do |t|
@@ -61,7 +60,7 @@ ActiveRecord::Schema.define(version: 20160815164416) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string   "name"
+    t.string   "status"
     t.text     "review"
     t.integer  "rating"
     t.integer  "event_id"
@@ -85,8 +84,9 @@ ActiveRecord::Schema.define(version: 20160815164416) do
     t.string   "login"
     t.string   "password"
     t.string   "address"
-    t.integer  "note"
-    t.string   "country"
+    t.integer  "rating"
+    t.string   "gender"
+    t.integer  "age"
     t.string   "description"
     t.string   "status"
     t.datetime "created_at",  null: false
@@ -98,8 +98,7 @@ ActiveRecord::Schema.define(version: 20160815164416) do
   add_foreign_key "events", "users"
   add_foreign_key "favorite_sports", "sports"
   add_foreign_key "favorite_sports", "users"
-  add_foreign_key "messages", "events"
-  add_foreign_key "messages", "users"
+  add_foreign_key "messages", "players"
   add_foreign_key "players", "events"
   add_foreign_key "players", "users"
 end
