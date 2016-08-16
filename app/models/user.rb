@@ -12,5 +12,5 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :age, presence: true
   validates :status, presence: true
-  validates :sports, presence: true
+
 end

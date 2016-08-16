@@ -4,5 +4,5 @@ class Place < ApplicationRecord
   # presence
   validates :name, presence: true
   validates :address, presence: true
-  validates :adress, uniqueness: true
+  validates :address, uniqueness: true
 end

@@ -10,6 +10,6 @@ class Event < ApplicationRecord
   validates :required_level, presence: true
   validates :status, presence: true
   validates :required_material, presence: true
-  validates :sports, presence: true
+  validates :sport, presence: true
 
 end
