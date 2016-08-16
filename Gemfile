@@ -46,3 +46,11 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#  les gemmes que j'ajoute pour la gestion du front et les images
+
+#  security
+gem 'figaro'
+
+# cloudinary & environment
+gem 'cloudinary', '1.1.0'

@@ -45,10 +45,24 @@ ActiveRecord::Schema.define(version: 20160815164416) do
 
   create_table "messages", force: :cascade do |t|
     t.text     "content"
-    t.integer  "player_id"
+    t.integer  "event_id"
+    t.integer  "participation_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["event_id"], name: "index_messages_on_event_id", using: :btree
+    t.index ["participation_id"], name: "index_messages_on_participation_id", using: :btree
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.string   "status"
+    t.text     "review"
+    t.integer  "rating"
+    t.integer  "event_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["player_id"], name: "index_messages_on_player_id", using: :btree
+    t.index ["event_id"], name: "index_participations_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_participations_on_user_id", using: :btree
   end
 
   create_table "places", force: :cascade do |t|
@@ -57,18 +71,6 @@ ActiveRecord::Schema.define(version: 20160815164416) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "players", force: :cascade do |t|
-    t.string   "status"
-    t.text     "review"
-    t.integer  "rating"
-    t.integer  "event_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_players_on_event_id", using: :btree
-    t.index ["user_id"], name: "index_players_on_user_id", using: :btree
   end
 
   create_table "sports", force: :cascade do |t|
@@ -98,7 +100,8 @@ ActiveRecord::Schema.define(version: 20160815164416) do
   add_foreign_key "events", "users"
   add_foreign_key "favorite_sports", "sports"
   add_foreign_key "favorite_sports", "users"
-  add_foreign_key "messages", "players"
-  add_foreign_key "players", "events"
-  add_foreign_key "players", "users"
+  add_foreign_key "messages", "events"
+  add_foreign_key "messages", "participations"
+  add_foreign_key "participations", "events"
+  add_foreign_key "participations", "users"
 end
