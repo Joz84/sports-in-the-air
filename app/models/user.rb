@@ -17,7 +17,7 @@ class User < ApplicationRecord
   # validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password, presence: true
   validates :gender, presence: true
-  validates :age, presence: true
+  validates :birthday, presence: true
   validates :status, presence: true
 
 end

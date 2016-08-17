@@ -11,5 +11,6 @@ class Event < ApplicationRecord
   validates :status, presence: true
   validates :required_material, presence: true
   validates :sport, presence: true
+  validates :date, presence: true
 
 end

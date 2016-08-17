@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20160816151225) do
     t.string   "address"
     t.integer  "rating"
     t.string   "gender"
-    t.integer  "age"
+    t.date     "birthday"
     t.string   "description"
     t.string   "status"
     t.datetime "created_at",                          null: false
