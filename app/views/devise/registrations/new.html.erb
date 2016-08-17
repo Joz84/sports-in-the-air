@@ -14,6 +14,7 @@
       <%= f.input :gender, as: :radio_buttons, collection: ["male", "female", "Not sure"], required: true %>
       <%= f.input :birthday, required: true, as: :date, start_year: Time.now.year - 90, end_year: Time.now.year %>
       <%= f.input :address %>
+      <%= f.hidden_field :status, value: "non-available" %>
 
 
     </div>
