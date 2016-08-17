@@ -7,6 +7,8 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.text :description
       t.integer :number_of_players
       t.string :status
+      t.date :date
+      t.time :time
       t.references :user, foreign_key: true
       t.references :place, foreign_key: true
       t.references :sport, foreign_key: true

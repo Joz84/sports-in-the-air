@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20160816151225) do
     t.text     "description"
     t.integer  "number_of_players"
     t.string   "status"
+    t.date     "date"
+    t.time     "time"
     t.integer  "user_id"
     t.integer  "place_id"
     t.integer  "sport_id"
