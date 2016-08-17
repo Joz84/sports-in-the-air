@@ -124,6 +124,21 @@ user_attributes = [
 user_attributes.each { |params| User.create(params) }
 
 
+Place.destroy_all
+places_attributes = [
+  {
+    name: "Racing Club de France",
+    address: "154 Rue de Saussure, 75017, Paris, France",
+    description: "Very fancy dear Sir"
+  },
+  {
+    name: "Polo de Paris",
+    address: " Route des Moulins, 75116 Paris, France",
+    description: "Ever more fancy"
+  }
+]
+
+
 Event.destroy_all
 events_attributes = [
   {
@@ -133,7 +148,9 @@ events_attributes = [
     status: "open",
     sport: Sport.all.sample,
     date: Date.tomorrow,
-    time: Time.now
+    time: Time.now,
+    user: User.all.sample,
+    place: Place.all.sample
   },
   {
     name: "Sport co",
@@ -142,7 +159,9 @@ events_attributes = [
     status: "open",
     sport: Sport.all.sample,
     date: Date.tomorrow,
-    time: Time.now
+    time: Time.now,
+    user: User.all.sample,
+    place: Place.all.sample
   },
   {
     name: "Attention ca va faire mal",
@@ -151,7 +170,9 @@ events_attributes = [
     status: "waiting list",
     sport: Sport.all.sample,
     date: Date.tomorrow,
-    time: Time.now
+    time: Time.now,
+    user: User.all.sample,
+    place: Place.all.sample
   },
   {
     name: "Qui est partant?",
@@ -160,7 +181,9 @@ events_attributes = [
     status: "open",
     sport: Sport.all.sample,
     date: Date.tomorrow,
-    time: Time.now
+    time: Time.now,
+    user: User.all.sample,
+    place: Place.all.sample
   },
   {
     name: "Allez on se chauffe !",
@@ -169,8 +192,23 @@ events_attributes = [
     status: "waiting list",
     sport: Sport.all.sample,
     date: Date.tomorrow,
-    time: Time.now
+    time: Time.now,
+    user: User.all.sample,
+    place: Place.all.sample
   }
 ]
 events_attributes.each { |params| Event.create(params) }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
