@@ -68,6 +68,9 @@ gem "autoprefixer-rails"
 # Authentification
 gem 'devise'
 
+#Facebook gem
+gem 'omniauth-facebook'
+
 
 
 

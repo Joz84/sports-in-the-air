@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :favorite_sports, only: [:index, :create, :destroy, :update]
 
   root to: "pages#home"
