@@ -1,0 +1,17 @@
+<% @favorite_sports.each do |favorite_sport|%>
+  <%= cl_image_tag favorite_sport.sport.photo.path, width: 300, height: 200, crop: :fill %>
+  <h1><%= favorite_sport.sport.name %></h1>
+  <p><%= favorite_sport.level %></p>
+  <p><%= favorite_sport.material %></p>
+  <%= link_to 'Delete', favorite_sport_path(favorite_sport.id), method: :delete, data: {confirm: "Are you sure?"}%>
+<% end %>
+
+<%= simple_form_for(@favorite_sport) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.association :sport %>
+  <%= f.input :material %>
+  <%= f.input :level %>
+
+  <%= f.button :submit, value: "Add favorite sport" %>
+<% end %>
