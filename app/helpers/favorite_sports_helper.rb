@@ -1,0 +1,2 @@
+module FavoriteSportsHelper
+end
