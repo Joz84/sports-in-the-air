@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Events#index</h1>
 <p>Find me in app/views/events/index.html.erb</p>
 
@@ -12,3 +13,15 @@
 <p>
 <%= link_to "Creat a event", new_event_path %>
 </p>
+=======
+<div class="container">
+  <% @events.each do |event|%>
+    <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url('https://www.sportscorner.qa/image/catalog/Blog/Basketball02.jpg');" alt="City Photo">
+        <%= image_tag("https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAXTAAAAJDFjYzM5MDMzLTI2MjYtNDliZS1hYTJlLTRiYjcyZjczYzRmMw.jpg", class: "card-user avatar avatar-large")%>
+        <h2 class="card-title">Basketball</h2>
+        <h3 class="card-subtitle">Organized by Félix</h3>
+        <p class="card-description">33 open events</p>
+    </div>
+  <% end %>
+</div>
+>>>>>>> bcbc6590984c0b860b26dcaa187f52f443e4b836

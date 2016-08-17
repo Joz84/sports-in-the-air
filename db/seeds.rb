@@ -67,7 +67,7 @@ user_attributes = [
     email: "jojolapin@gmail.com",
     password: "blabla",
     gender: "male",
-    age: 32,
+    birthday: Date.today - 7281,
     status: "available"
   },
   {
@@ -77,7 +77,7 @@ user_attributes = [
     email: "potpot@gmail.com",
     password: "blabla",
     gender: "male",
-    age: 22,
+    birthday: Date.today - 7389,
     status: "available"
   },
   {
@@ -87,7 +87,7 @@ user_attributes = [
     email: "bouloubo@gmail.com",
     password: "blabla",
     gender: "female",
-    age: 21,
+    birthday: Date.today - 11526,
     status: "available"
   },
   {
@@ -97,7 +97,7 @@ user_attributes = [
     email: "clairye@gmail.com",
     password: "blabla",
     gender: "male",
-    age: 24,
+    birthday: Date.today - 2018,
     status: "available"
   },
   {
@@ -107,7 +107,7 @@ user_attributes = [
     email: "johni@gmail.com",
     password: "blabla",
     gender: "male",
-    age: 22,
+    birthday: Date.today - 6378,
     status: "available"
   },
   {
@@ -117,7 +117,7 @@ user_attributes = [
     email: "lolo@gmail.com",
     password: "blabla",
     gender: "female",
-    age: 25,
+    birthday: Date.today - 156,
     status: "available"
   },
 ]
