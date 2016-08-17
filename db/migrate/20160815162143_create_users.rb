@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :address
       t.integer :rating
       t.string :gender
-      t.integer :age
+      t.date :birthday
       t.string :description
       t.string :status
 
