@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
   def index
+    sport = Sport.find(name: params[sport])
+    @events = Event.where({ sport: sport})
+    raise
   end
 
   def show
