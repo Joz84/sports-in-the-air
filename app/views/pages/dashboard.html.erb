@@ -1,16 +1,11 @@
 <h1 style="text-align: center"> My Dashboard </h1>
 
 
-<%= link_to "favorite sport" , favorite_sports_path, class: "btn btn-primary" %>
-
-<%= link_to "Create an event" , new_event_path, class: "btn btn-primary" %>
-
-
+<div class="wrapper-grey">
 <% if current_user.photo? %>
-  <div class="avatar">
-  <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill%>
-  </div>
+  <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill %>
 <% end %>
+</div>
 
 
 <div class="container">
@@ -24,7 +19,7 @@
         <% end %>
 
        <%= link_to "Edit your favorite Sport", favorite_sports_path, class: "btn btn-primary" %>
-
-
   </div>
 </div>
+
+<%= link_to "Create an event" , new_event_path, class: "btn btn-primary" %>
