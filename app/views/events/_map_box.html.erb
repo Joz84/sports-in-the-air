@@ -1,0 +1,11 @@
+<h3>
+  <%= event.name %>
+</h3>
+<%= cl_image_tag event.sport.photo.path, width: 150, height: 100, crop: :fill %>
+<h5>
+  <%= event.address %>
+</h5>
+<p>
+  <%= event.time.strftime("%m/%d/%Y") %>
+  <%= event.time.strftime("at %I:%M%p") %>
+</p>
