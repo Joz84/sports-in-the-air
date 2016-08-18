@@ -1,7 +1,7 @@
 .card {
   flex: 0 0 47%;
   position: relative;
-  width: 400px;
+  width: 262px;
   height: 250px;
   background-size: cover;
   background-position: 100% center;
@@ -10,19 +10,18 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   margin: 10px auto;
 }
-
 .card-user {
   position: absolute;
   right: 10px;
   top: 10px;
 }
-
 .card:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 .card h2 {
   color: white;
+  font-size: 22px;
 }
 .card-title {
   position: absolute;
