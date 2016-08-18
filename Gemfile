@@ -65,12 +65,16 @@ gem "font-awesome-sass"
 gem "simple_form"
 gem "autoprefixer-rails"
 
+# Geo
+gem 'geocoder'
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 # Authentification
 gem 'devise'
 
-#Facebook gem
+# Facebook gem
 gem 'omniauth-facebook'
-
-
-
-

@@ -15,4 +15,8 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :address, presence: true
   validates :number_of_players, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 end
