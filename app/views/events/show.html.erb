@@ -23,3 +23,15 @@
 <% else %>
   <%= link_to "Participate", event_participations_path(@event), method: "post" %>
 <% end %>
+
+<br>
+<hr>
+<ul>
+  <% @event.messages.each do |message| %>
+  <li>
+    <%= "#{message.participation.user.first_name}: #{message.content}" %>
+  </li>
+  <% end %>
+</ul>
+
+
