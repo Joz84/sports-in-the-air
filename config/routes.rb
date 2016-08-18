@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :favorite_sports, only: [:index, :create, :destroy, :update]
 
+  root to: "pages#dashboard", constraints: lambda { |r| r.env["warden"].authenticate? }
   root to: "pages#home"
+
   get "/dashboard/", to: "pages#dashboard"
   #resources :sports, only: [:index, :show]
   resources :events do

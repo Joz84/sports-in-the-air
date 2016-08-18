@@ -17,6 +17,10 @@ class ParticipationsController < ApplicationController
 
   end
 
+  def index
+    @participations = current_user.participations.all
+  end
+
   def destroy
     @event = Event.find(params[:id])
     @event.participations.find_by_user_id(current_user.id).destroy
