@@ -1,0 +1,15 @@
+<br>
+<hr>
+<ul>
+  <% @event.messages.each do |message| %>
+  <li>
+    <%= "#{message.participation.user.first_name}: #{message.content}" %>
+  </li>
+  <% end %>
+</ul>
+
+<%= simple_form_for([@event, @message]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>

@@ -18,13 +18,6 @@
 
 <%= "#{@event.participations.count} / #{@event.number_of_players}" %>
 
-<% if @event.participations.find_by_user_id(current_user.id) %>
-  <%= link_to "Delete", event_participation_path([@event, @event.participations.find_by_user_id(current_user.id)]), method: "delete", data: { confirm: "Are you sure SURE?" } %>
-<% else %>
-  <%= link_to "Participate", event_participations_path(@event), method: "post" %>
-<% end %>
-
-
 <div id="map" style="width: 100%; height: 500px;">
   <% content_for(:after_js) do %>
     <script>
@@ -45,13 +38,11 @@
   <% end %>
 </div>
 
-<br>
-<hr>
-<ul>
-  <% @event.messages.each do |message| %>
-  <li>
-    <%= "#{message.participation.user.first_name}: #{message.content}" %>
-  </li>
-  <% end %>
-</ul>
+<% if @event.participations.find_by_user_id(current_user.id) %>
+  <%= render "messaging" %>
+  <%= link_to "Cancel", event_participation_path([@event, @event.participations.find_by_user_id(current_user.id)]), method: "delete", data: { confirm: "Are you sure SURE?" } %>
+<% else %>
+  <%= link_to "Attend", event_participations_path(@event), method: "post" %>
+<% end %>
+
 

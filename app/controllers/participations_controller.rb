@@ -19,7 +19,12 @@ class ParticipationsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.participations.find_by_user_id(current_user.id).destroy
+    participation = @event.participations.find_by_user_id(current_user.id)
+    # participation.messages.each do |message|
+    #   message.participation = nil
+    #   message.save
+    # end
+    participation.destroy
     redirect_to @event
   end
 
