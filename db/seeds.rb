@@ -144,7 +144,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    place: Place.all.sample
+    address: "154 Route des Moulins, 75116, Paris, France"
   },
   {
     name: "Sport co",
@@ -155,7 +155,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    place: Place.all.sample
+    address: "154 Route des Moulins, 75116, Paris, France"
   },
   {
     name: "Attention ca va faire mal",
@@ -166,7 +166,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    place: Place.all.sample
+    address: "154 Route des Moulins, 75116, Paris, France"
   },
   {
     name: "Qui est partant?",
@@ -177,7 +177,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    place: Place.all.sample
+    address: "154 Route des Moulins, 75116, Paris, France"
   },
   {
     name: "Allez on se chauffe !",
@@ -188,7 +188,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    place: Place.all.sample
+    address: "154 Route des Moulins, 75116, Paris, France"
   }
 ]
 events_attributes.each { |params| Event.create(params) }

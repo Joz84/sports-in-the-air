@@ -49,7 +49,7 @@ class EventsController < ApplicationController
                                   :status,
                                   :date,
                                   :time,
-                                  :place_id,
+                                  :address,
                                   :sport_id
                                   )
   end
