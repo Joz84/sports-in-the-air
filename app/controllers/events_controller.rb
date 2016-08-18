@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :make_done]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     #sport = Sport.find_by_name("soccer")#params[sport])
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
 
   def show
     @participant = Participation.new
+    @message = Message.new
     @hash = Gmaps4rails.build_markers(@event) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
@@ -24,8 +25,8 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.new(event_params)
-    Participation.create(status: "organizer", user: current_user, event: @event)
     if @event.save
+      Participation.create(status: "organizer", user: current_user, event: @event)
       redirect_to @event
     else
       render :new

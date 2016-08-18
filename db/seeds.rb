@@ -152,7 +152,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    address: "154 Route des Moulins, 75116, Paris, France",
+    address: "Pessac, France",
     number_of_players: 4
   },
   {
@@ -164,7 +164,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    address: "154 Route des Moulins, 75116, Paris, France",
+    address: "Bordeaux, France",
     number_of_players: 4
   },
   {
@@ -176,7 +176,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    address: "154 Route des Moulins, 75116, Paris, France",
+    address: "Toulouse, France",
     number_of_players: 4
   },
   {
@@ -188,7 +188,7 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    address: "154 Route des Moulins, 75116, Paris, France",
+    address: "101 Allée quai des Chartrons, Bordeaux, France",
     number_of_players: 4
   },
   {
@@ -200,12 +200,23 @@ events_attributes = [
     date: Date.tomorrow,
     time: Time.now,
     user: User.all.sample,
-    address: "154 Route des Moulins, 75116, Paris, France",
+    address: "17 Place de la bourse, Bordeaux, France",
     number_of_players: 4
   }
 ]
 events_attributes.each { |params| Event.create(params) }
 
+Message.destroy_all
+
+messages_attributes = []
+Event.all.each do |event|
+    messages_attributes << {
+      content: "Bienvenue sur le tchat !",
+      event: event,
+      participation: Participation.new(status: "orgaiser", user: User.all.sample, event: event)
+    }
+end
+messages_attributes.each { |params| Message.create(params) }
 
 
 
