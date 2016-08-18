@@ -13,13 +13,55 @@
 
 <div class="container">
   <div class="wrapper-grey">
+    <h1>My Favorite Sports </h1>
         <% current_user.favorite_sports.each do |favorite_sport|%>
           <%= cl_image_tag favorite_sport.sport.photo.path, width: 300, height: 200, crop: :fill %>
-          <h1><%= favorite_sport.sport.name %></h1>
-          <p><%= favorite_sport.level %></p>
+          <h4><%= favorite_sport.sport.name %></h4>
+          <p><% ((favorite_sport.level).to_i).times do |i| %>
+          <i class="fa fa-smile-o"></i>
+          <%end %>
+          </p>
           <p><%= favorite_sport.material %></p>
           <%= link_to 'Delete', favorite_sport_path(favorite_sport.id), method: :delete, data: {confirm: "Are you sure?"}%>
         <% end %>
+  </div>
+</div>
+
+<h1> My events </h1>
+<div class="container">
+  <div class="wrapper-grey">
+    <div class="row">
+      <h3> Participant </h3>
+        <% current_user.participations.each do |participation|%>
+        <% if participation.status != "organizer" %>
+          <h4><%= participation.event.name %></h4>
+          <%= cl_image_tag participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>
+          <p><%= participation.event.sport.name %></p>
+          <p>
+            <% ((participation.event.required_level).to_i).times do |i|%>
+              <i class="fa fa-smile-o"></i>
+              <% end %>
+          </p>
+       <% end %>
+      <% end %>
+     </div>
+    </div>
+  </div>
+
+   <div class="wrapper-grey">
+      <h3> Organizer </h3>
+        <% current_user.participations.each do |participation|%>
+        <% if participation.status == "organizer" %>
+          <h4><%= participation.event.name %></h4>
+          <%= cl_image_tag participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>
+          <p><%= participation.event.sport.name %></p>
+          <p>
+            <% ((participation.event.required_level).to_i).times do |i|%>
+              <i class="fa fa-smile-o"></i>
+              <% end %>
+          </p>
+        <% end %>
+      <% end %>
   </div>
 </div>
 
