@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20160817133537) do
     t.string   "address"
     t.integer  "user_id"
     t.integer  "sport_id"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["sport_id"], name: "index_events_on_sport_id", using: :btree

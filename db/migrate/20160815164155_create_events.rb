@@ -13,6 +13,8 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       # t.references :place, foreign_key: true
       t.references :sport, foreign_key: true
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
