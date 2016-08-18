@@ -131,7 +131,7 @@ places_attributes = [
     description: "Ever more fancy"
   }
 ]
-
+places_attributes.each { |params| Place.create(params) }
 
 Event.destroy_all
 events_attributes = [

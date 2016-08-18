@@ -1,11 +1,11 @@
 class FavoriteSportsController < ApplicationController
   def index
-    @favorite_sports = FavoriteSport.all
-    @favorite_sport = FavoriteSport.new
+    @favorite_sports = current_user.favorite_sports.all
+    @favorite_sport = current_user.favorite_sports.new
   end
 
   def create
-    @favorite_sport = FavoriteSport.new(favorite_sport_params)
+    @favorite_sport = current_user.favorite_sports.new(favorite_sport_params)
     @favorite_sport.save
     redirect_to favorite_sports_path
   end
