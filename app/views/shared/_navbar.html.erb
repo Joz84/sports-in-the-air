@@ -40,6 +40,11 @@
               <% end %>
             </li>
             <li>
+              <%= link_to events_path do %>
+                <i class="fa fa-trophy"></i>  <%= t(".event", default: "Events") %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
