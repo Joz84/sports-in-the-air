@@ -63,7 +63,6 @@ user_attributes = [
   {
     first_name: "Jonathan",
     last_name: "Bobo",
-    login: "Jojolapin",
     email: "jojolapin@gmail.com",
     password: "blabla",
     gender: "male",
@@ -73,7 +72,6 @@ user_attributes = [
   {
     first_name: "Paul",
     last_name: "Pot",
-    login: "Potpot",
     email: "potpot@gmail.com",
     password: "blabla",
     gender: "male",
@@ -83,7 +81,6 @@ user_attributes = [
   {
     first_name: "Poulou",
     last_name: "Boulobou",
-    login: "Bouloubo",
     email: "bouloubo@gmail.com",
     password: "blabla",
     gender: "female",
@@ -93,7 +90,6 @@ user_attributes = [
   {
     first_name: "Claire",
     last_name: "Bye",
-    login: "Clairye",
     email: "clairye@gmail.com",
     password: "blabla",
     gender: "male",
@@ -103,7 +99,6 @@ user_attributes = [
   {
     first_name: "John",
     last_name: "bobo",
-    login: "JohnI",
     email: "johni@gmail.com",
     password: "blabla",
     gender: "male",
@@ -113,7 +108,6 @@ user_attributes = [
   {
     first_name: "Johanna",
     last_name: "bololo",
-    login: "lolo3000",
     email: "lolo@gmail.com",
     password: "blabla",
     gender: "female",
