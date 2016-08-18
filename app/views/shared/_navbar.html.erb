@@ -13,24 +13,22 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-    <div class="search-bar" data-reactid=".0.0">
-      <i class="header-icon icon-search-alt-gray search-icon" data-reactid=".0.0.0"></i>
-      <label class="screen-reader-only" for="header-search-form" data-reactid=".0.0.1"></label>
-      <input type="text" placeholder="Où&nbsp;?" autocomplete="off" name="location" id="header-search-form" class="location" value="" data-reactid=".0.0.2">
-      <input type="hidden" name="source" value="hdr" data-reactid=".0.0.3">
-    </div>
+
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
-        <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
-        </div>
+        <!-- Search form -->
+          <div class="search-bar" data-reactid=".0.0">
+              <%= form_tag events_path, method: :get do %>
+              <%= label :address, "Events near : " %>
+              <%= text_field_tag :address, params[:address] %>
+              <%= label :distance, "Distance : " %>
+              <%= text_field_tag :distance, params[:distance] %>
+              <%= submit_tag "Search" %>
       <% end %>
+          </div>
+
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
@@ -40,6 +38,9 @@
           <% else %>
             <%=cl_image_tag "https://image.freepik.com/icones-gratuites/profil-de-l&-39;utilisateur-avatar_318-31071.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
+
+
+
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to dashboard_path do %>
@@ -66,6 +67,7 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
+
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">

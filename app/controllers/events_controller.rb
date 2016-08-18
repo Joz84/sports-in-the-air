@@ -5,7 +5,15 @@ class EventsController < ApplicationController
   def index
     #sport = Sport.find_by_name("soccer")#params[sport])
     #@events = Event.where({ sport: sport})
-    @events = Event.all
+    if params[:address].present?
+      if params[:distance].present?
+      @events = Event.near(params[:address], params[:distance])
+      else
+      @events = Event.near(params[:address], 5 )
+      end
+    else
+      @events = Event.all
+    end
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
@@ -50,6 +58,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
   end
+
 
   private
 
