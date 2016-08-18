@@ -3,8 +3,9 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :make_done]
 
   def index
-    sport = Sport.find_by_name("golf")#params[sport])
-    @events = Event.where({ sport: sport})
+    #sport = Sport.find_by_name("soccer")#params[sport])
+    #@events = Event.where({ sport: sport})
+    @events = Event.all
   end
 
   def show
