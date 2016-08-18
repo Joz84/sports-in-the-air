@@ -1,8 +1,9 @@
 class Event < ApplicationRecord
+
   belongs_to :user
   # belongs_to :place
   belongs_to :sport
-  has_many :participations
+  has_many :participations, dependent: :destroy
   has_many :messages
 
   validates :name, presence: true
@@ -13,5 +14,5 @@ class Event < ApplicationRecord
   validates :sport, presence: true
   validates :date, presence: true
   validates :address, presence: true
-
+  validates :number_of_players, presence: true
 end
