@@ -9,8 +9,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :status
       t.date :date
       t.time :time
-      t.city :string
-      t.address :string
+      t.string :address
       t.references :user, foreign_key: true
       # t.references :place, foreign_key: true
       t.references :sport, foreign_key: true

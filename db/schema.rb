@@ -39,12 +39,11 @@ ActiveRecord::Schema.define(version: 20160817133537) do
     t.string   "status"
     t.date     "date"
     t.time     "time"
+    t.string   "address"
     t.integer  "user_id"
-    t.integer  "place_id"
     t.integer  "sport_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["place_id"], name: "index_events_on_place_id", using: :btree
     t.index ["sport_id"], name: "index_events_on_sport_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
@@ -128,7 +127,6 @@ ActiveRecord::Schema.define(version: 20160817133537) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "events", "places"
   add_foreign_key "events", "sports"
   add_foreign_key "events", "users"
   add_foreign_key "favorite_sports", "sports"

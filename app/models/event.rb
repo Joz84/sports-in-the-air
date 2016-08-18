@@ -13,6 +13,5 @@ class Event < ApplicationRecord
   validates :sport, presence: true
   validates :date, presence: true
   validates :address, presence: true
-  validates :city, presence: true
 
 end
