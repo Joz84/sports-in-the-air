@@ -10,7 +10,6 @@
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
-      <%= f.input :login, required: true %>
       <%= f.input :gender, as: :radio_buttons, collection: ["male", "female", "Not sure"], required: true %>
       <%= f.input :birthday, required: true, as: :date, start_year: Time.now.year - 90, end_year: Time.now.year %>
       <%= f.input :address %>
