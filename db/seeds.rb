@@ -54,6 +54,14 @@ sports = [
   {
     name: "golf",
     photo_url: "http://www.viagolf.fr/wp-content/uploads/2016/03/aaa.jpg"
+  },
+  {
+    name: "sexe",
+    photo_url: "http://genevievecoteauteure.com/boutique/image/catalog/Image%20G.C/Fotolia_88901350_Subscription_Monthly_M.jpg"
+  },
+  {
+    name: "woman football",
+    photo_url: "http://imgview.info/download/20151012/women-adriana-lima-candice-swanepoel-lily-aldridge-behati-prinsloo-group-of-women-american-football-doutzen-kroes-helmet-sports-2560x1600.jpg"
   }
 ]
 sports.each { |params| Sport.create(params) }

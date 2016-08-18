@@ -1,11 +1,14 @@
-<h1 style="text-align: center"> My Dashboard </h1>
+<h1 style="text-align: center"> Welcome to <%= current_user.first_name %>'s Dashboard </h1>
 
 
-<div class="wrapper-grey">
+<div class="profile">
 <% if current_user.photo? %>
-  <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill %>
+  <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>300}] %>
 <% end %>
 </div>
+
+<%= link_to "Edit your Profile" , edit_user_registration_path, class: "btn btn-primary" %>
+<%= link_to "Create an event" , new_event_path, class: "btn btn-primary" %>
 
 
 <div class="container">
@@ -17,9 +20,9 @@
           <p><%= favorite_sport.material %></p>
           <%= link_to 'Delete', favorite_sport_path(favorite_sport.id), method: :delete, data: {confirm: "Are you sure?"}%>
         <% end %>
-
-       <%= link_to "Edit your favorite Sport", favorite_sports_path, class: "btn btn-primary" %>
   </div>
 </div>
 
-<%= link_to "Create an event" , new_event_path, class: "btn btn-primary" %>
+  <%= link_to "Edit your favorite Sport", favorite_sports_path, class: "btn btn-primary" %>
+
+

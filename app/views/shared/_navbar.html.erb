@@ -1,7 +1,15 @@
 <div class="navbar-wagon">
   <!-- Logo -->
+  <% if user_signed_in? %>
+  <%= link_to dashboard_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "logotest5.png" %>
+  <% end %>
+
+  <%else%>
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logotest5.png" %>
+  <% end %>
+
   <% end %>
 
   <!-- Right Navigation -->
@@ -10,7 +18,7 @@
     <!-- Search form -->
     <div class="search-bar" data-reactid=".0.0">
       <i class="header-icon icon-search-alt-gray search-icon" data-reactid=".0.0.0"></i>
-      <label class="screen-reader-only" for="header-search-form" data-reactid=".0.0.1">Où&nbsp;?</label>
+      <label class="screen-reader-only" for="header-search-form" data-reactid=".0.0.1"></label>
       <input type="text" placeholder="Où&nbsp;?" autocomplete="off" name="location" id="header-search-form" class="location" value="" data-reactid=".0.0.2">
       <input type="hidden" name="source" value="hdr" data-reactid=".0.0.3">
     </div>
@@ -41,6 +49,11 @@
             <li>
               <%= link_to dashboard_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Your Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to events_path do %>
+                <i class="fa fa-trophy"></i>  <%= t(".event", default: "Events") %>
               <% end %>
             </li>
             <li>
