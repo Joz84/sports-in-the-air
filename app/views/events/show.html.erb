@@ -1,5 +1,17 @@
+<%= cl_image_tag @event.sport.photo.path %>
 <h1><%= @event.name %></h1>
 <p><%= @event.description %></p>
 
 <%= link_to "Edit", edit_event_path %>
 <%= link_to "Delete", event_path, method: "delete", data: { confirm: "Are you sure SURE?" } %>
+
+
+<%= simple_form_for[@event, @participant] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :status %>
+  <%= f.input :review %>
+  <%= f.input :rating %>
+
+  <%= f.button :submit, "Add a participant"  %>
+<% end %>
