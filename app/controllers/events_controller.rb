@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @participant = Participation.new
   end
 
   def destroy
@@ -18,6 +19,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.new(event_params)
+    Participation.create(status: "organizer", user: current_user, event: @event)
     if @event.save
       redirect_to @event
     else

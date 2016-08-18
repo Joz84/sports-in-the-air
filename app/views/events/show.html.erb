@@ -2,16 +2,22 @@
 <h1><%= @event.name %></h1>
 <p><%= @event.description %></p>
 
-<%= link_to "Edit", edit_event_path %>
-<%= link_to "Delete", event_path, method: "delete", data: { confirm: "Are you sure SURE?" } %>
+<%= link_to "Edit", edit_event_path(@event) %>
+<%= link_to "Delete", event_path(@event), method: "delete", data: { confirm: "Are you sure SURE?" } %>
 
+<%= @event.number_of_players %>
 
-<%= simple_form_for[@event, @participant] do |f| %>
+<% @event.participations.each do |participant|%>
+  <%= participant.user.first_name %>
+  <%= participant.user.last_name %>
+
+  <p>--</p>
+
+  <%= participant.status %>
+<% end %>
+
+<%= simple_form_for([@event, @participant]) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :status %>
-  <%= f.input :review %>
-  <%= f.input :rating %>
-
-  <%= f.button :submit, "Add a participant"  %>
+  <%= f.button :submit, "Participate"  %>
 <% end %>

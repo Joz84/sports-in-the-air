@@ -4,13 +4,17 @@ class ParticipationsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    @participant = @event.participations.new(participations_params)
-
-    if @participant.save
-      redirect_to event_path(@event)
-    else
-      render "events/show"
+    if not @event.participations.find_by_user_id(current_user.id)
+      @participant = @event.participations.new(user: current_user)
+      @participant.status = Participation.give_status(@event)
+      if @participant.save
+        redirect_to event_path(@event)
+      else
+        render "events/show"
+      end
     end
+
+
   end
 
   def destroy
