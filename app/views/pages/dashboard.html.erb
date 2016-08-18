@@ -7,5 +7,24 @@
 
 
 <% if current_user.photo? %>
-  <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill %>
+  <div class="avatar">
+  <%= cl_image_tag current_user.photo.path, width: 200, height: 300, crop: :fill%>
+  </div>
 <% end %>
+
+
+<div class="container">
+  <div class="wrapper-grey">
+        <% current_user.favorite_sports.each do |favorite_sport|%>
+          <%= cl_image_tag favorite_sport.sport.photo.path, width: 300, height: 200, crop: :fill %>
+          <h1><%= favorite_sport.sport.name %></h1>
+          <p><%= favorite_sport.level %></p>
+          <p><%= favorite_sport.material %></p>
+          <%= link_to 'Delete', favorite_sport_path(favorite_sport.id), method: :delete, data: {confirm: "Are you sure?"}%>
+        <% end %>
+
+       <%= link_to "Edit your favorite Sport", favorite_sports_path, class: "btn btn-primary" %>
+
+
+  </div>
+</div>

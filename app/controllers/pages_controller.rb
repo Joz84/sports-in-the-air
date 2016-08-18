@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    # @ = current_user.photo
   end
+
 end
