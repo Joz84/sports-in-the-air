@@ -5,7 +5,7 @@
 <%= link_to "Edit", edit_event_path(@event) %>
 <%= link_to "Delete", event_path(@event), method: "delete", data: { confirm: "Are you sure SURE?" } %>
 
-<%= @event.number_of_players %>
+
 
 <% @event.participations.each do |participant|%>
   <%= participant.user.first_name %>
@@ -16,8 +16,10 @@
   <%= participant.status %>
 <% end %>
 
-<%= simple_form_for([@event, @participant]) do |f| %>
-  <%= f.error_notification %>
+<%= "#{@event.participations.count} / #{@event.number_of_players}" %>
 
-  <%= f.button :submit, "Participate"  %>
+<% if @event.participations.find_by_user_id(current_user.id) %>
+  <%= link_to "Delete", event_participation_path([@event, @event.participations.find_by_user_id(current_user.id)]), method: "delete", data: { confirm: "Are you sure SURE?" } %>
+<% else %>
+  <%= link_to "Participate", event_participations_path(@event), method: "post" %>
 <% end %>
