@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :required_level, presence: true
-  validates :status, presence: true
+  #validates :status, presence: true
   validates :required_material, presence: true
   validates :sport, presence: true
   validates :date, presence: true
