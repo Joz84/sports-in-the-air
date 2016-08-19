@@ -62,6 +62,22 @@ sports = [
   {
     name: "woman football",
     photo_url: "http://imgview.info/download/20151012/women-adriana-lima-candice-swanepoel-lily-aldridge-behati-prinsloo-group-of-women-american-football-doutzen-kroes-helmet-sports-2560x1600.jpg"
+  },
+ {
+    name: "Lacrosse",
+    photo_url: "http://www.thehill.org/Customized/Uploads/ByDate/2015/July_2015/July_21st_2015/Boys%20Lax72824.JPG"
+  },
+  {
+    name: "Hockey",
+    photo_url: "http://www.lareleve.qc.ca/media/photos/unis/2016/02/18/2016-02-18-06-45-06-hockey.jpg"
+  },
+  {
+    name: "Polo",
+    photo_url: "http://karenine.com/wp-content/uploads/2013/12/polo-sport.jpg"
+  },
+  {
+    name: "tir a l'arc",
+    photo_url: "http://www.valjoly.com/wp-content/uploads/2013/07/tirAlArc-slide2.jpg"
   }
 ]
 sports.each { |params| Sport.create(params) }
@@ -75,6 +91,7 @@ user_attributes = [
     password: "blabla",
     gender: "male",
     birthday: Date.today - 7281,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     status: "available"
   },
   {
@@ -90,12 +107,73 @@ user_attributes = [
 
   },
   {
+    first_name: "Lea",
+    last_name: "Connor",
+    email: "leaconnor@gmail.com",
+    password: "blabla",
+    gender: "female",
+    birthday: Date.today - 7389,
+    status: "available",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    photo_url: "http://www.elevagedelapin.fr/wp-content/uploads/2014/12/lapin-216311.jpg"
+
+  },
+  {
+    first_name: "Emma",
+    last_name: "Dupont",
+    email: "emmadupont@gmail.com",
+    password: "blabla",
+    gender: "female",
+    birthday: Date.today - 7389,
+    status: "available",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    photo_url: "http://www.elevagedelapin.fr/wp-content/uploads/2014/12/lapin-216311.jpg"
+
+  },
+  {
+    first_name: "Jacques",
+    last_name: "Bordeaux",
+    email: "jacquesbordeaux@gmail.com",
+    password: "blabla",
+    gender: "male",
+    birthday: Date.today - 7389,
+    status: "available",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    photo_url: "https://avatars.githubusercontent.com/u/20277922?v=3"
+
+  },
+  {
+    first_name: "Paulo",
+    last_name: "Robert",
+    email: "paulorobert@gmail.com",
+    password: "blabla",
+    gender: "male",
+    birthday: Date.today - 7389,
+    status: "available",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    photo_url: "http://www.elevagedelapin.fr/wp-content/uploads/2014/12/lapin-216311.jpg"
+
+  },
+  {
+    first_name: "Loan",
+    last_name: "Robert",
+    email: "loanrobert@gmail.com",
+    password: "blabla",
+    gender: "male",
+    birthday: Date.today - 7389,
+    status: "available",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    photo_url: "https://avatars.githubusercontent.com/u/20277922?v=3"
+
+  },
+  {
     first_name: "Poulou",
     last_name: "Boulobou",
     email: "bouloubo@gmail.com",
     password: "blabla",
     gender: "female",
     birthday: Date.today - 11526,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     status: "available"
   },
   {
@@ -105,6 +183,7 @@ user_attributes = [
     password: "blabla",
     gender: "male",
     birthday: Date.today - 2018,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     status: "available"
   },
   {
@@ -114,6 +193,7 @@ user_attributes = [
     password: "blabla",
     gender: "male",
     birthday: Date.today - 6378,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     status: "available"
   },
   {
@@ -123,6 +203,7 @@ user_attributes = [
     password: "blabla",
     gender: "female",
     birthday: Date.today - 156,
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     status: "available"
   },
 ]
@@ -171,7 +252,79 @@ events_attributes = [
     number_of_players: 4
   },
   {
-    name: "Attention ca va faire mal",
+    name: "MyEvent#1",
+    required_level: "1",
+    required_material: "true",
+    status: "waiting list",
+    sport: Sport.all.sample,
+    date: Date.tomorrow,
+    time: Time.now,
+    user: User.all.sample,
+    address: "Lille, France",
+    number_of_players: 4
+  },
+  {
+    name: "MyEvent#2",
+    required_level: "1",
+    required_material: "true",
+    status: "waiting list",
+    sport: Sport.all.sample,
+    date: Date.tomorrow,
+    time: Time.now,
+    user: User.all.sample,
+    address: "Toulouse, France",
+    number_of_players: 4
+  },
+  {
+    name: "MyEvent#3",
+    required_level: "1",
+    required_material: "true",
+    status: "waiting list",
+    sport: Sport.all.sample,
+    date: Date.tomorrow,
+    time: Time.now,
+    user: User.all.sample,
+    address: "Toulon, France",
+    number_of_players: 4
+  },
+  {
+    name: "MyEvent#4",
+    required_level: "1",
+    required_material: "true",
+    status: "waiting list",
+    sport: Sport.all.sample,
+    date: Date.tomorrow,
+    time: Time.now,
+    user: User.all.sample,
+    address: "Nantes, France",
+    number_of_players: 4
+  },
+  {
+    name: "MyEvent#5",
+    required_level: "1",
+    required_material: "true",
+    status: "waiting list",
+    sport: Sport.all.sample,
+    date: Date.tomorrow,
+    time: Time.now,
+    user: User.all.sample,
+    address: "Brest, France",
+    number_of_players: 4
+  },
+  {
+    name: "MyEvent#6",
+    required_level: "1",
+    required_material: "true",
+    status: "waiting list",
+    sport: Sport.all.sample,
+    date: Date.tomorrow,
+    time: Time.now,
+    user: User.all.sample,
+    address: "Strasbourg, France",
+    number_of_players: 4
+  },
+  {
+    name: "MyEvent#7",
     required_level: "1",
     required_material: "true",
     status: "waiting list",
