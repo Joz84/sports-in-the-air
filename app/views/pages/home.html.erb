@@ -2,7 +2,9 @@
   <div class="banner-content">
     <h1 class="title"> Sports In The Air</h1>
     <h3 class="catch-phrase">Very cool stuff, useful and smart</h3>
-    <p class="button">SIGN UP</a>
+    <strong>
+    <%= link_to "SIGN UP", new_user_registration_path, class: "button" %>
+    </strong>
   </div>
 </div>
 
@@ -131,9 +133,9 @@
       <h2>Get news from us</h2>
       <p>Leave us your mail and get news from us</p>
          <form action="#">
-          <label for="your-email">Your email</label>
+          <label for="your-email">Your email:</label>
           <input type="email" id="your-email" placeholder="bob@gmail.com">
-          <input class="btn btn-primary" type="submit" value="Sign In">
+          <input class="btn btn-default" type="submit" value="Sign In">
       </form>
   </div>
 
