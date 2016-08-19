@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @favorite_sport = FavoriteSport.new
   end
 
 end

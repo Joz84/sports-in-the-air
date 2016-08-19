@@ -1,22 +1,14 @@
 class FavoriteSportsController < ApplicationController
-  def index
-    @favorite_sports = current_user.favorite_sports.all
-    @favorite_sport = current_user.favorite_sports.new
-  end
-
   def create
     @favorite_sport = current_user.favorite_sports.new(favorite_sport_params)
     @favorite_sport.save
-    redirect_to favorite_sports_path
+    redirect_to dashboard_path
   end
 
   def destroy
     @favorite_sport = FavoriteSport.find(params[:id])
     @favorite_sport.delete
-    redirect_to favorite_sports_path
-  end
-
-  def update
+    redirect_to dashboard_path
   end
 
     private

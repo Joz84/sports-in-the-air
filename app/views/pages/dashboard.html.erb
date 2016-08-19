@@ -27,6 +27,8 @@
   </div>
 </div>
 
+<%= render "form_fav" %>
+
 <h1> My events </h1>
 <div class="container">
   <div class="wrapper-grey">
@@ -34,8 +36,13 @@
       <h3> Participant </h3>
         <% current_user.participations.each do |participation|%>
         <% if participation.status != "organizer" %>
-          <h4><%= participation.event.name %></h4>
-          <%= cl_image_tag participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>
+          <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= cl_image_path participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>);" alt="Photo de Sport">
+
+            <h2 class="card-title"><%= participation.event.name %></h2>
+            <h3 class="card-subtitle"></h3>
+            <p class="card-description"><%= participation.event.user.first_name %> <%= participation.event.user.last_name %><%= participation.event.description %></p>
+            <%= link_to "", participation.event, class: "card-link" %>
+          </div>
           <p><%= participation.event.sport.name %></p>
           <p>
             <% ((participation.event.required_level).to_i).times do |i|%>
@@ -52,8 +59,13 @@
       <h3> Organizer </h3>
         <% current_user.participations.each do |participation|%>
         <% if participation.status == "organizer" %>
-          <h4><%= participation.event.name %></h4>
-          <%= cl_image_tag participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>
+
+          <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= cl_image_path participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>);" alt="Photo de Sport">
+
+            <h2 class="card-title"><%= participation.event.name %></h2>
+            <h3 class="card-subtitle"></h3>
+            <%= link_to "", participation.event, class: "card-link" %>
+          </div>
           <p><%= participation.event.sport.name %></p>
           <p>
             <% ((participation.event.required_level).to_i).times do |i|%>
@@ -65,6 +77,6 @@
   </div>
 </div>
 
-  <%= link_to "Edit your favorite Sport", favorite_sports_path, class: "btn btn-primary" %>
+  <%= link_to "Organize a new event", new_event_path, class: "btn btn-primary" %>
 
 
