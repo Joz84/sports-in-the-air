@@ -1,9 +1,9 @@
 <h3>
-  <%= event.name %>
+  <%= link_to event.name, event_path %>
 </h3>
-<%= cl_image_tag event.sport.photo.path, width: 150, height: 100, crop: :fill %>
+<%= link_to (cl_image_tag event.sport.photo.path, width: 150, height: 100, crop: :fill), event_path %>
 <h5>
-  <%= event.address %>
+  <%=  %>
 </h5>
 <p>
   <%= event.time.strftime("%m/%d/%Y") %>
