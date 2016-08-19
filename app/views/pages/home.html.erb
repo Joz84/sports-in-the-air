@@ -2,25 +2,32 @@
   <div class="banner-content">
     <h1 class="title"> Sports In The Air</h1>
     <h3 class="catch-phrase">Very cool stuff, useful and smart</h3>
-    <p class="button">SIGN UP</a>
+    <strong>
+    <%= link_to "SIGN UP", new_user_registration_path, class: "button" %>
+    </strong>
+    <div class="search-banner">
+    <%= render "shared/search-bar"%>
+    </div>
   </div>
 </div>
+
+
 
 
 <div class="home-icons">
   <div class="row">
 
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4">
       <div class="card1">
         <%= image_tag "heart.svg"%>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4">
       <div class="card1">
         <%= image_tag "raquette.svg"%>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4">
       <div class="card1">
         <%= image_tag "group.svg"%>
       </div>
@@ -28,19 +35,19 @@
   </div>
   <div class="row">
 
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4">
       <div class="card1">
         <h2>Healthy</h2>
         <p class="description">Find a partner to go exercise at all times. That's one more reseon to stop postponing your running session.</p>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4">
       <div class="card1">
         <h2>Passionate</h2>
         <p class="description"> Find people around you with which you share the same excitement and aptitude for your favorite sport.</p>
       </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-12 col-md-4">
       <div class="card1">
         <h2>Social</h2>
         <p class="description">A chance to meet new people everytime you want go for a run, play soccer or hit the gym!</p>
@@ -93,37 +100,6 @@
     </div>
   </div>
 
-<!-- <div class="container">
-  <div class="home-cards">
-    <div class="row">
-      <div class="col-lg-8 col-md-12">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6col-sm-12">
-        <div class="card card2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-12">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
-        </div>
-      </div>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
-        </div>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
-        </div>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
-        </div>
-    </div>
-  </div>
-</div> -->
-
-
-
 <hr>
 
 
@@ -131,9 +107,9 @@
       <h2>Get news from us</h2>
       <p>Leave us your mail and get news from us</p>
          <form action="#">
-          <label for="your-email">Your email</label>
+          <label for="your-email">Your email:</label>
           <input type="email" id="your-email" placeholder="bob@gmail.com">
-          <input class="btn btn-primary" type="submit" value="Sign In">
+          <input class="btn btn-default" type="submit" value="Sign In">
       </form>
   </div>
 
