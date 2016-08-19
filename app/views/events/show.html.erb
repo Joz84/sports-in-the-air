@@ -1,46 +1,53 @@
-<%= cl_image_tag @event.sport.photo.path %>
-<h1><%= @event.name %></h1>
-<p><%= @event.description %></p>
+<div class="container">
+  <div class="row">
+    <div class="under-navbar">
+      <%= cl_image_tag @event.sport.photo.path, class: "card" %>
+      <h1><%= @event.name %></h1>
+      <p><%= @event.description %></p>
 
-<%= link_to "Edit", edit_event_path(@event) %>
-<%= link_to "Delete", event_path(@event), method: "delete", data: { confirm: "Are you sure SURE?" } %>
+      <%= link_to "Edit", edit_event_path(@event) %>
+      <%= link_to "Delete", event_path(@event), method: "delete", data: { confirm: "Are you sure SURE?" } %>
 
-<% @event.participations.each do |participant|%>
-  <%= participant.user.first_name %>
-  <%= participant.user.last_name %>
 
-  <p>--</p>
 
-  <%= participant.status %>
-<% end %>
+      <% @event.participations.each do |participant|%>
+        <%= participant.user.first_name %>
+        <%= participant.user.last_name %>
 
-<%= "#{@event.participations.count} / #{@event.number_of_players}" %>
+        <p>--</p>
 
-<div id="map" style="width: 100%; height: 500px;">
-  <% content_for(:after_js) do %>
-    <script>
-      $(document).ready(function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @hash.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          if (markers.length == 0) {
-            handler.getMap().setZoom(2);
-          } else if (markers.length == 1) {
-            handler.getMap().setZoom(15);
-          }
-        });
-      });
-    </script>
-  <% end %>
+        <%= participant.status %>
+      <% end %>
+
+      <%= "#{@event.participations.count} / #{@event.number_of_players}" %>
+
+      <div id="map" style="width: 100%; height: 500px;">
+        <% content_for(:after_js) do %>
+          <script>
+            $(document).ready(function() {
+              var handler = Gmaps.build('Google');
+              handler.buildMap({ internal: { id: 'map' } }, function() {
+                markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                handler.bounds.extendWith(markers);
+                handler.fitMapToBounds();
+                if (markers.length == 0) {
+                  handler.getMap().setZoom(2);
+                } else if (markers.length == 1) {
+                  handler.getMap().setZoom(15);
+                }
+              });
+            });
+          </script>
+        <% end %>
+      </div>
+
+      <% if @event.participations.find_by_user_id(current_user.id) %>
+        <%= render "messaging" %>
+        <%= link_to "Cancel", event_participation_path([@event, @event.participations.find_by_user_id(current_user.id)]), method: "delete", data: { confirm: "Are you sure SURE?" } %>
+      <% else %>
+        <%= link_to "Attend", event_participations_path(@event), method: "post", class: "btn btn-success" %>
+      <% end %>
+      <%= link_to "Back to your profile", dashboard_path(@event), class: "btn btn-default" %>
+    </div>
+  </div>
 </div>
-
-<% if @event.participations.find_by_user_id(current_user.id) %>
-  <%= render "messaging" %>
-  <%= link_to "Cancel", event_participation_path([@event, @event.participations.find_by_user_id(current_user.id)]), method: "delete", data: { confirm: "Are you sure SURE?" } %>
-<% else %>
-  <%= link_to "Attend", event_participations_path(@event), method: "post" %>
-<% end %>
-
-
