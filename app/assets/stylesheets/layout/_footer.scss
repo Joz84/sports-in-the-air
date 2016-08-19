@@ -1,21 +1,30 @@
 // Your footer style
 .footer {
-  background: #BAA7B0;
+  background: #545454;
   color: white;
-  padding: 50px;
+  padding: 0px;
   font-size: 10px;
   display: flex;
   justify-content: space-between;
+  bottom: 0;
+  margin-top: 70px;
 }
 
 .footer p {
   padding: 30px;
   font-size: 15px;
+  color: white;
 }
 
-.footer a {
-  padding: 10px;
+.footer i {
+  padding: 25px;
   font-size: 40px;
+  color: white;
 }
-
-
+.footer a {
+  color: white;
+  :hover {
+    color: lightgrey;
+    cursor: pointer;
+  }
+}
