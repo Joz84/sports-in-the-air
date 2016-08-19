@@ -84,7 +84,10 @@ user_attributes = [
     password: "blabla",
     gender: "male",
     birthday: Date.today - 7389,
-    status: "available"
+    status: "available",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    photo_url: "http://www.elevagedelapin.fr/wp-content/uploads/2014/12/lapin-216311.jpg"
+
   },
   {
     first_name: "Poulou",
