@@ -78,3 +78,6 @@ gem 'devise'
 
 # Facebook gem
 gem 'omniauth-facebook'
+
+# Doc heroku
+gem 'rails_12factor', group: :production

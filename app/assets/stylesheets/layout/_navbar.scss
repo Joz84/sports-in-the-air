@@ -66,38 +66,56 @@
 }
 
 /* Navbar search form */
-.navbar-wagon-search {
-  flex: 0 1 300px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 10px;
-  position: relative;
+
+.group-form {
+  font-family: "Raleway", "Helvetica", "sans-serif";
 }
-.navbar-wagon-search-btn {
-  line-height: 40px;
-  color: #E6E6E6;
-  border: none;
-  background: transparent;
-  position: absolute;
-  right: 14px;
-  top: -2px;
-  z-index: 1;
-}
-.navbar-wagon-search-input {
-  flex: 0 1 300px;
-  transition: all 0.15s ease;
-  line-height: 40px;
-  font-weight: lighter;
-  color: #666666;
-  border: 1px solid #E6E6E6;
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 14px;
-  outline: none;
-}
-.navbar-wagon-search-input:focus  {
-  border: 1px solid #CCCCCC;
-}
+
+// .search-bar form {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+// .search-bar form .group-form:last-child {
+//   width: 40px;
+// }
+
+// .group-form input {
+//   height: 25px;
+// }
+
+// .navbar-wagon-search {
+//   flex: 0 1 300px;
+//   display: flex;
+//   justify-content: flex-end;
+//   padding: 0 10px;
+//   position: relative;
+// }
+// .navbar-wagon-search-btn {
+//   line-height: 40px;
+//   color: #E6E6E6;
+//   border: none;
+//   background: transparent;
+//   position: absolute;
+//   right: 14px;
+//   top: -2px;
+//   z-index: 1;
+// }
+// .navbar-wagon-search-input {
+//   flex: 0 1 300px;
+//   transition: all 0.15s ease;
+//   line-height: 40px;
+//   font-weight: lighter;
+//   color: #666666;
+//   border: 1px solid #E6E6E6;
+//   border-radius: 5px;
+//   padding: 0 10px;
+//   font-size: 14px;
+//   outline: none;
+// }
+// .navbar-wagon-search-input:focus  {
+//   border: 1px solid #CCCCCC;
+// }
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {

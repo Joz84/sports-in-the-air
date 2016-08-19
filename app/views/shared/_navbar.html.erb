@@ -18,17 +18,9 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-        <!-- Search form -->
-          <div class="search-bar" data-reactid=".0.0">
-              <%= form_tag events_path, method: :get do %>
-              <%= label :address, "Events near : " %>
-              <%= text_field_tag :address, params[:address] %>
-              <%= label :distance, "Distance : " %>
-              <%= text_field_tag :distance, params[:distance] %>
-              <%= submit_tag "Search" %>
-      <% end %>
-          </div>
 
+      <!-- Search form -->
+      <%= render 'shared/search-bar' %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
