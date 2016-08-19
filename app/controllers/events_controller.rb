@@ -6,23 +6,25 @@ class EventsController < ApplicationController
     #sport = Sport.find_by_name("soccer")#params[sport])
     #@events = Event.where({ sport: sport})
 
-    if params[:address].present?
-      if params[:distance].present?
-        activities = Event.near(params[:address], params[:distance])
+    if research_params[:address].present?
+      if research_params[:distance].present?
+        activities = Event.near(research_params[:address], research_params[:distance])
       else
-        activities = Event.near(params[:address], 5 )
+        activities = Event.near(research_params[:address], 100 )
       end
     else
       activities = Event.all
     end
 
-    if params[:date].present?
-      date = Date.parse(params[:date])
+    if research_params[:date].present?
+      date = Date.parse(research_params[:date])
     else
       date = Date.today
     end
 
-    @events = activities.select { |activity| activity.sport.id == (params[:sport]).to_i && activity.date == date }
+    @events = activities.select { |activity| activity.sport.id == (research_params[:sport]).to_i && activity.date == date }
+    e = research_params
+    #raise
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
@@ -82,6 +84,14 @@ class EventsController < ApplicationController
                                   :time,
                                   :address,
                                   :sport_id
+                                  )
+  end
+
+  def research_params
+    params.permit(:address,
+                                  :date,
+                                  :distance,
+                                  :sport
                                   )
   end
 
