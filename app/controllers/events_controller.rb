@@ -15,7 +15,14 @@ class EventsController < ApplicationController
     else
       activities = Event.all
     end
-    @events = activities.select { |activity| activity.sport.id == params[:sport] }
+
+    if params[:date].present?
+      date = Date.parse(params[:date])
+    else
+      date = Date.today
+    end
+
+    @events = activities.select { |activity| activity.sport.id == (params[:sport]).to_i && activity.date == date }
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
