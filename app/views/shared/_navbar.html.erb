@@ -18,16 +18,26 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-        <!-- Search form -->
-          <div class="search-bar" data-reactid=".0.0">
-              <%= form_tag events_path, method: :get do %>
-              <%= label :address, "Events near : " %>
-              <%= text_field_tag :address, params[:address] %>
-              <%= label :distance, "Distance : " %>
-              <%= text_field_tag :distance, params[:distance] %>
-              <%= submit_tag "Search" %>
-      <% end %>
+
+      <!-- Search form -->
+      <div class="search-bar form-inline" data-reactid=".0.0">
+        <%= form_tag events_path, method: :get do %>
+          <div class="form-group group-form">
+            <%= label :sport, "Sport: ", class: "col-form-label col-form-label-sm" %>
+            <%= select_tag :sport, options_from_collection_for_select(Sport.all, :id, :name) %>
           </div>
+          <div class="form-group group-form">
+            <%= label :address, "Events near: ", class: "col-form-label col-form-label-sm" %>
+            <%= text_field_tag :address, params[:address], class: "form-control form-control-xs", placeholder: "City" %>
+          </div>
+          <div class="form-group group-form">
+            <%= label :distance, "Distance: ", class: "col-form-label col-form-label-sm" %>
+            <%= text_field_tag :distance, params[:distance], class: "form-control form-control-xs", placeholder: "5" %>
+            <span>km&nbsp&nbsp</span>
+          </div>
+          <%= submit_tag "Search", class: "btn btn-default" %>
+        <% end %>
+      </div>
 
 
       <!-- Profile picture and dropdown -->
