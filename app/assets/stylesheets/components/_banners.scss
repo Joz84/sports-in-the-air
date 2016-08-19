@@ -9,13 +9,18 @@
   justify-content: center;
 }
 .banner h1 {
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  font-family: 'Lobster', cursive;
 }
 .banner p {
   font-size: 20px;
-  font-weight: lighter;
+  font-weight: bold;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
+}
+.button {
+  border: 2px solid white;
+  border-radius: 40px;
 }
