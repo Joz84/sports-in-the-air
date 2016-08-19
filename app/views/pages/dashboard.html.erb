@@ -1,164 +1,139 @@
 <div class="container">
-<h1 style="text-align: center"> Welcome to <%= current_user.first_name %>'s Dashboard </h1>
-<br>
-
-
-    <div class="row">
-      <div class="col-xs-offset-4 col-sm-offset-5">
-      <div class="profile">
-      <% if current_user.photo? %>
-        <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>300}] %>
-      <% end %>
-      </div>
-    </div>
-    <br>
-  </div>
-</div>
-<div class="container">
-
-
-
-<br>
-<br>
-
-
-
-<div class="container">
-             <div class="row">
-              <div class="col-xs-6">
-                <p><%= current_user.first_name %>
-                <%= current_user.last_name %></p>
-                <p><%= current_user.birthday %><p>
+  <div class="row">
+    <div class="under-navbar">
+      <h1 style="text-align: center"> Welcome to <%= current_user.first_name %>'s Dashboard </h1>
+      <br>
+    <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="profile">
+            <div class="desc text-right">
+              <p><%= current_user.first_name %>
+              <%= current_user.last_name %></p>
+              <p><%= current_user.birthday %><p>
+            </div>
+            <div class="desc text-center">
+            <% if current_user.photo? %>
+              <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>300}] %>
+            <% end %>
+            </div>
+            <div class="desc">
+              <%= current_user.description %>
+            </div>
+          </div>
+        </div>
+        <br>
+        <%= link_to edit_user_registration_path, class: "btn btn-primary" do %>
+          <i class='fa fa-cogs' aria-hidden='true'></i>
+          Profil Settings
+        <% end %>
+        <div class="container">
+          <hr>
+          <div class="wrapper-grey">
+            <h2 class="text-center" > My friends </h2>
+            <div class="row">
+              <div class="col-xs-4 text-center">
+                <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>80, :height=>80, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>150}] %>
               </div>
-              <div class="col-xs-6">
-                <%= current_user.description %>
+              <div class="col-xs-4 text-center">
+                <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>80, :height=>80, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>150}] %>
+              </div>
+              <div class="col-xs-4 text-center">
+                <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>80, :height=>80, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>150}] %>
               </div>
             </div>
-
-<br>
-<%= link_to "     Profil Settings", edit_user_registration_path, class:"fa fa-cogs btn btn-primary" %>
-<%= link_to "     Create an event" , new_event_path, class: " fa fa-plus btn btn-primary"%>
-
-<div class="container">
-<hr>
-  <div class="wrapper-grey">
-    <h2 style=" text-align:center;"> My friends </h2>
-     <div class="row">
-          <div class="col-xs-4">
-            <% if current_user.photo? %>
-              <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>80, :height=>80, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>150}] %>
-            <% end %>
           </div>
-          <div class="col-xs-4">
-            <% if current_user.photo? %>
-              <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>80, :height=>80, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>150}] %>
-            <% end %>
-          </div>
-          <div class="col-xs-4">
-            <% if current_user.photo? %>
-              <%= cl_image_tag current_user.photo.path, :transformation=>[{:width=>80, :height=>80, :gravity=>"face", :radius=>"max", :crop=>"fill"},{:width=>150}] %>
-            <% end %>
-          </div>
+        </div>
+        <hr>
       </div>
-  </div>
-</div>
+      <div class="row">
+        <div class="wrapper-brown">
+          <div class="col-sm-8 col-md-6">
+            <h1>My Favorite Sports </h1>
+            <hr>
+            <h3>&nbsp</h3>
+              <% current_user.favorite_sports.each do |favorite_sport|%>
+                <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= cl_image_path favorite_sport.sport.photo.path, width: 450, height: 250, crop: :fill %>);" alt="Photo de Sport">
 
-<hr>
-
-    </div>
-  <div class="row">
-     <div class="wrapper-brown">
-      <div class="col-sm-8 col-md-6">
-        <h1>My Favorite Sports </h1>
-            <% current_user.favorite_sports.each do |favorite_sport|%>
-             <h3><%= favorite_sport.sport.name %></h3>
-             <br>
-              <%= cl_image_tag favorite_sport.sport.photo.path, width: 450, height: 250, crop: :fill %>
-              <%= link_to "&times;".html_safe, favorite_sport_path(favorite_sport.id), method: :delete, data: { confirm: "Are you sure ? "} %>
-              <p><% ((favorite_sport.level).to_i).times do |i| %>
-              <i class="fa fa-smile-o"></i>
-              <%end %>
-              </p>
-              <p><%= favorite_sport.material %></p>
-
-            <% end %>
-          <%= render "form_fav" %>
-      </div>
-    </div>
-
-<tr>
-   <div class="wrapper-red">
-
-    <h1> My events </h1>
-    <hr>
-
-    <div class="wrapper-grey">
-         <div class="col-xs-6 col-sm-4 col-md-3">
-          <h3> Participants </h3>
-            <% current_user.participations.each do |participation|%>
-            <% if participation.status != "organizer" %>
-              <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= cl_image_path participation.event.sport.photo.path, width: 600, height: 400, crop: :fill %>);" alt="Photo de Sport">
-
-                <h2 class="card-title"><%= participation.event.name %></h2>
+                <h2 class="card-title">
+                  <%= favorite_sport.sport.name %>
+                </h2>
                 <h3 class="card-subtitle"></h3>
-                <p class="card-description"><%= participation.event.user.first_name %> <%= participation.event.user.last_name %><%= participation.event.description %></p>
-                <%= link_to "", participation.event, class: "card-link" %>
-              </div>
-
-
-              <p><%= participation.event.sport.name %></p>
-              <p>
-                <% ((participation.event.required_level).to_i).times do |i|%>
-                  <i class="fa fa-smile-o"></i>
+                <p class="card-description">
+                  <% ((favorite_sport.level).to_i).times do |i| %>
+                    <i class="fa fa-smile-o"></i>
                   <% end %>
-              </p>
-           <% end %>
-          <% end %>
-         </div>
 
-
-      <div class="col-xs-6 col-sm-4 col-md-3">
-         <div class="wrapper-grey">
-            <h3> Organizer </h3>
-
-
-
-
-              <% current_user.participations.each do |participation|%>
-              <% if participation.status == "organizer" %>
-
-                <% if current_user.participations == [] %>
-                  <h2> You are note organizing any event </h2>
-                <% else %>
-
-                  <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= cl_image_path participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>);" alt="Photo de Sport">
-                    <h2 class="card-title"><%= participation.event.name %></h2>
-                    <h3 class="card-subtitle"></h3>
-                    <%= link_to "", participation.event, class: "card-link" %>
-                  </div>
-
-
-                  <%= link_to "&times;".html_safe, event_participation_path(participation.event.id, participation.id), method: :delete, data: { confirm: "Are you sure ? "} %>
-
-
-
-                  <p><%= participation.event.sport.name %></p>
-                  <p>
-                    <% ((participation.event.required_level).to_i).times do |i|%>
-                      <i class="fa fa-smile-o"></i>
-                      <% end %>
-                  </p>
-                <% end %>
+                </p>
+                </div>
+                <p><%= favorite_sport.material %></p>
               <% end %>
-            <% end %>
-            <br>
-            <%= link_to "Organize a new event", new_event_path, class: "fa fa-plus btn btn-primary" %>
+
+            <%= render "form_fav" %>
+            </div>
+          </div>
+          <tr>
+          <div class="wrapper-red">
+
+            <h1> My events </h1>
+            <hr>
+            <div class="wrapper-grey">
+              <div class="col-xs-6 col-sm-4 col-md-3">
+                <h3>Participants</h3>
+                <% current_user.participations.each do |participation|%>
+                  <% if participation.status != "organizer" %>
+                    <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= cl_image_path participation.event.sport.photo.path, width: 600, height: 400, crop: :fill %>);" alt="Photo de Sport">
+
+                      <h2 class="card-title"><%= participation.event.name %></h2>
+                      <h3 class="card-subtitle"></h3>
+                      <p class="card-description"><%= participation.event.user.first_name %> <%= participation.event.user.last_name %><%= participation.event.description %> <br>
+                        <%= participation.event.sport.name %>
+                        <% ((participation.event.required_level).to_i).times do |i|%>
+                          <i class="fa fa-smile-o"></i>
+                        <% end %>
+                      </p>
+                      <%= link_to "", participation.event, class: "card-link" %>
+                    </div>
+
+
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="wrapper-grey">
+                  <h3>Organizer</h3>
+                    <% current_user.participations.each do |participation|%>
+                      <% if participation.status == "organizer" %>
+                        <% if current_user.participations == [] %>
+                          <h2> You are note organizing any event </h2>
+                        <% else %>
+                          <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= cl_image_path participation.event.sport.photo.path, width: 300, height: 200, crop: :fill %>);" alt="Photo de Sport">
+                            <h2 class="card-title"><%= participation.event.name %></h2>
+                            <h3 class="card-subtitle"></h3>
+                            <%= link_to "", participation.event, class: "card-link" %>
+                          </div>
+                          <%= link_to "&times;".html_safe, event_participation_path(participation.event.id, participation.id), method: :delete, data: { confirm: "Are you sure ? "} %>
+                          <p><%= participation.event.sport.name %></p>
+                          <p>
+                            <% ((participation.event.required_level).to_i).times do |i|%>
+                              <i class="fa fa-smile-o"></i>
+                            <% end %>
+                          </p>
+                        <% end %>
+                      <% end %>
+                  <% end %>
+                  <%= link_to new_event_path, class: "btn btn-primary" do %>
+                    <i class='fa fa-plus' aria-hidden='true'></i>
+                    Create an event
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <br>
 </div>
 
 
