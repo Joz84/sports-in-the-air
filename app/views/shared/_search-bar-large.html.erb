@@ -10,9 +10,16 @@
     </div>
 
     <div class="form-group group-form">
+      <%= label :distance, "Distance: ", class: "col-form-label col-form-label-sm" %>
+      <%= text_field_tag :distance, params[:distance], class: "form-control form-control-xs", placeholder: "5" %>
+      <span>km&nbsp&nbsp</span>
+    </div>
+
+    <div class="form-group group-form">
       <%= label :date, "Date", class: "col-form-label col-form-label-sm" %>
       <%= date_field_tag :date, params[:date], class: "form-control form-control-xs", placeholder: Date.today.to_s %>
     </div>
+
     <%= submit_tag "Search", class: "btn btn-default" %>
   <% end %>
 </div>
