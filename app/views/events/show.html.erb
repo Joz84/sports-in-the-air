@@ -5,8 +5,6 @@
 <%= link_to "Edit", edit_event_path(@event) %>
 <%= link_to "Delete", event_path(@event), method: "delete", data: { confirm: "Are you sure SURE?" } %>
 
-
-
 <% @event.participations.each do |participant|%>
   <%= participant.user.first_name %>
   <%= participant.user.last_name %>
