@@ -9,27 +9,41 @@
 
 <div class="home-icons">
   <div class="row">
-    <div class="col-sm-4">
-      <div class="card1">
-        <img src="images/1.png" alt="grosse bite">
-        <h2> youhou </h2>
-        <p class="description"> youhou </p>
-      </div>
-    </div>
 
     <div class="col-sm-4">
       <div class="card1">
-        <img src="images/12.png" alt="grosse bite">
-        <h2> youhou </h2>
-        <p class="description"> youhou </p>
+        <%= image_tag "heart.svg"%>
       </div>
     </div>
+    <div class="col-sm-4">
+      <div class="card1">
+        <%= image_tag "raquette.svg"%>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card1">
+        <%= image_tag "group.svg"%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
 
     <div class="col-sm-4">
       <div class="card1">
-        <img src="images/13.png" alt="grosse bite">
-        <h2> youhou </h2>
-        <p class="description"> youhou </p>
+        <h2>Healthy</h2>
+        <p class="description">Find a partner to go exercise at all times. That's one more reseon to stop postponing your running session.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card1">
+        <h2>Passionate</h2>
+        <p class="description"> Find people around you with which you share the same excitement and aptitude for your favorite sport.</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card1">
+        <h2>Social</h2>
+        <p class="description">A chance to meet new people everytime you want go for a run, play soccer or hit the gym!</p>
       </div>
     </div>
   </div>
@@ -42,31 +56,38 @@
   <div class="home-cards">
     <div class="row">
       <div class="col-sm-12 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <div class="card special" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path Sport.all.sample.photo.path %>);">
+        <h1>Event#1</h1>
         </div>
       </div>
       <div class="col-sm-6 col-md-8">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <div class="card special" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/27347/pexels-photo-27347.jpg');">
+          <h1>Paris</h1>
         </div>
       </div>
       <div class="col-sm-6 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <div class="card special" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path Sport.all.sample.photo.path %>);">
+        <h1>Event#2</h1>
         </div>
       </div>
       <div class="col-sm-12 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <div class="card special" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <h1>Event#3</h1>
         </div>
       </div>
       <div class="col-sm-6 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <div class="card special" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path Sport.all.sample.photo.path %>);">
+        <h1>Event#4</h1>
         </div>
       </div>
       <div class="col-sm-6 col-md-8">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <div class="card special" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg');">
+          <h1>New York</h1>
         </div>
       </div>
       <div class="col-sm-12 col-md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://static.pexels.com/photos/29578/pexels-photo.jpg');">
+        <div class="card special" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path Sport.all.sample.photo.path %>);">
+        <h1>Event#5</h1>
         </div>
       </div>
     </div>
