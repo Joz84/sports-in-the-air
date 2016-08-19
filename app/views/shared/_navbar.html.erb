@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-wagon-fixed">
   <!-- Logo -->
   <% if user_signed_in? %>
     <%= link_to dashboard_path, class: "navbar-wagon-brand" do %>
@@ -56,7 +56,7 @@
     <% else %>
       <!-- Login text link -->
       <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-button btn"%>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-button btn" %>
     <% end %>
   </div>
 
